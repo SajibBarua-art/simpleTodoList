@@ -1,0 +1,187 @@
+:root {
+    --text-color: darkslategray;
+    --placeholder-color: gray;
+    --accent-color: #28a745;
+    --accent-hover: forestgreen;
+    --item-border: lightgray;
+    --danger-color: crimson;
+    --danger-hover: firebrick;
+    --completed-color: dimgray;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#headline-text {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid var(--item-border);
+    border-radius: 50px;
+    color: var(--text-color);
+}
+
+#todo-input::placeholder {
+    color: var(--placeholder-color)
+}
+
+#todo-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow:  0 0 0 2px rgba(40, 167, 69, 0.2);
+}
+
+.add-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 24px;
+    font-weight:  bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+.message {
+    text-align: center;
+    color: var(--accent-color);
+    font-weight:  500;
+    min-height: 20px;
+    margin-bottom: 15px;
+    opacity: 0;
+    trasition: opacity 0.3s ease-in-out;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: var(--completed-color);
+}
+
+.todo-item .actions .delete-btn {
+    background: none;
+    border: none;
+    color: var(--placeholder-color);
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.todo-item .actions .delete-btn:hover {
+    color: var(--danger-color);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-actions {
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+#modal-confirm-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+#modal-confirm-btn:hover {
+    background-color: var(--danger-hover);
+}
+
+#modal-cancel-btn {
+    background-color: #6c757d;
+    color: white;
+}
+#modal-cancel-btn:hover {
+    background-color: #5a6268;
+}
