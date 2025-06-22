@@ -85,9 +85,9 @@ const saveTodos = (): void => {
 const deleteTodo = (): void => {
     if (!todoIdToDelete) return;
 
-    // find operation can operate at O(1) time
+    // find operation can be done at O(1) time
     // using mapping technique
-    // but for todoList it's overkill as it won't be many entries
+    // but for todoList it's overkill as there won't be many entries
     todos = todos.filter(todo => todo.id !== todoIdToDelete);
     saveTodos();
     renderTodos();
